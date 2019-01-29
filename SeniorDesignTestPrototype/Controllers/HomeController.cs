@@ -12,9 +12,9 @@ namespace SeniorDesignTestPrototype.Controllers
     {
         public IActionResult Index()
         {
-            using (MyDbContext db = new MyDbContext()){
-                var k = db.Table1.ToList();
-            }
+            //using (MyDbContext db = new MyDbContext()){
+            //    var k = db.Table1.ToList();
+            //}
             return View();
         }
 

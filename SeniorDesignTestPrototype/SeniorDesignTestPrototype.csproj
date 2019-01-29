@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.1" />
+    <PackageReference Include="bootstrap" Version="4.2.1" />
+    <PackageReference Include="jQuery" Version="3.3.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,22 +33,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Models\Database.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database.cs</LastGenOutput>
-    </None>
+    <None Remove="Models\Database.tt" />
+    <None Remove="Models\EF.Reverse.POCO.Core.ttinclude" />
+    <None Remove="Models\EF.Reverse.POCO.ttinclude" />
   </ItemGroup>
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Models\Database.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
+    <Compile Remove="Models\Database.cs" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\jquery\.bower.json" />
+    <Content Remove="wwwroot\lib\jquery\dist\jquery.js" />
+    <Content Remove="wwwroot\lib\bootstrap\.bower.json" />
+  </ItemGroup>
 </Project>
