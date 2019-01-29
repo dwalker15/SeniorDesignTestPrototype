@@ -11,11 +11,14 @@ namespace SeniorDesignTestPrototype.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
+
         {
-            //using (MyDbContext db = new MyDbContext()){
-            //    var k = db.Table1.ToList();
-            //}
-            return View();
+            List<TNotes> d = null;
+            using (PrototypeDatabaseContext db = new PrototypeDatabaseContext())
+            {
+                d = db.TNotes.ToList();
+            }
+            return View(d);
         }
 
         public IActionResult About()
