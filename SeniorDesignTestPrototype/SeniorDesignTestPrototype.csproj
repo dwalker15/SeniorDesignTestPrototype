@@ -10,8 +10,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.1" />
-    <PackageReference Include="bootstrap" Version="4.2.1" />
-    <PackageReference Include="jQuery" Version="3.3.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
   </ItemGroup>
 
@@ -38,6 +36,7 @@
     <None Remove="Models\Database.tt" />
     <None Remove="Models\EF.Reverse.POCO.Core.ttinclude" />
     <None Remove="Models\EF.Reverse.POCO.ttinclude" />
+    <None Remove="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
@@ -45,6 +44,7 @@
 
   <ItemGroup>
     <Compile Remove="Models\Database.cs" />
+    <Compile Remove="Models\NotesModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\lib\jquery\.bower.json" />

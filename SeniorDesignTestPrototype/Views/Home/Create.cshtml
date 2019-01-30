@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+@model PrototypeModel
+
+@section Nav {
+<nav class="navbar navbar-expand-md navbar-dark nav-auburn">
+    <div class="container">
+        <h1 class="navbar-brand">Ergonomics Database</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a asp-area="" asp-controller="Home" asp-action="Create" class="nav-link"><b>Create</b></a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Senior Design Prototype
+            </span>
+        </div>
+    </div>
+</nav>
+}
+
+<div class="container mt-3">
+    <h2 class="text-center">Create Entry</h2>
+    <hr />
+    <form asp-controller="Home" asp-action="Create" method="post">
+            <div class="form-row">
+                <div class="col-12 col-md-6 mb-3">
+                    <label asp-for="torqueType">Torque Type</label>
+                    <input class="form-control" asp-for="torqueType">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label asp-for="posture">Posture</label>
+                    <input class="form-control" asp-for="posture">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12 mb-3">
+                    <label asp-for="dataCollection">Data Collection</label>
+                    <textarea class="form-control" rows="3" asp-for="dataCollection"></textarea>
+                </div>
+            </div>
+            <button class="btn btn-success" type="submit">Submit</button>
+     </form>
+</div>

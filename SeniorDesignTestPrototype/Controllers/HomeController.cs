@@ -11,28 +11,48 @@ namespace SeniorDesignTestPrototype.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-
         {
-            List<TNotes> d = null;
+            List<PrototypeModel> modelList = new List<PrototypeModel>();
             using (PrototypeDatabaseContext db = new PrototypeDatabaseContext())
             {
-                d = db.TNotes.ToList();
+                IQueryable<TPrototype> prototypes = db.TPrototype.Where(x => true);
+
+                foreach (var prototype in prototypes)
+                {
+                    PrototypeModel model = new PrototypeModel
+                    {
+                        dataCollection = prototype.VcDataCollection,
+                        posture = prototype.VcPosture,
+                        torqueType = prototype.VcTorqueType
+                    };
+                    modelList.Add(model);
+                }
             }
-            return View(d);
+            return View(modelList);
         }
 
-        public IActionResult About()
+        public IActionResult Create()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            PrototypeModel model = new PrototypeModel();
+            return View(model);
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public IActionResult Create(PrototypeModel model)
         {
-            ViewData["Message"] = "Your contact page.";
+            using (PrototypeDatabaseContext db = new PrototypeDatabaseContext())
+            {
+                TPrototype prototype = new TPrototype
+                {
+                    VcTorqueType = model.torqueType,
+                    VcPosture = model.posture,
+                    VcDataCollection = model.dataCollection
+                };
 
-            return View();
+                db.Add(prototype);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 
         public IActionResult Error()
