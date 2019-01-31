@@ -21,7 +21,7 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                Senior Design Prototype
+                 Ergonomics Database
             </span>
         </div>
     </div>
@@ -31,23 +31,60 @@
 <div class="container mt-3">
     <h2 class="text-center">Create Entry</h2>
     <hr />
-    <form asp-controller="Home" asp-action="Create" method="post">
+    <form asp-controller="Home" asp-action="Create" method="post" class="needs-validation" novalidate>
             <div class="form-row">
-                <div class="col-12 col-md-6 mb-3">
+                <div class="col-12 col-md-4 mb-3">
                     <label asp-for="torqueType">Torque Type</label>
-                    <input class="form-control" asp-for="torqueType">
+                    <input class="form-control" asp-for="torqueType" autocomplete="off" maxlength="1024" required>
+                    <div class="invalid-feedback">
+                        Torque type is required.
+                    </div>
                 </div>
-                <div class="col-12 col-md-6 mb-3">
+                <div class="col-12 col-md-4 mb-3">
                     <label asp-for="posture">Posture</label>
-                    <input class="form-control" asp-for="posture">
+                    <input class="form-control" asp-for="posture" autocomplete="off" maxlength="1024" required>
+                    <div class="invalid-feedback">
+                        Posture is required.
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <label asp-for="year">Study Year</label>
+                    <input class="form-control" asp-for="year" type="number" min="1900" max="2019" required>
+                    <div class="invalid-feedback">
+                        Study year is required.
+                    </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-12 mb-3">
                     <label asp-for="dataCollection">Data Collection</label>
-                    <textarea class="form-control" rows="3" asp-for="dataCollection"></textarea>
+                    <textarea class="form-control" rows="3" asp-for="dataCollection" maxlength="1024" required></textarea>
+                    <div class="invalid-feedback">
+                        Data collection is required.
+                    </div>
                 </div>
             </div>
             <button class="btn btn-success" type="submit">Submit</button>
      </form>
 </div>
+
+@section Scripts {
+<script>// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();</script>
+}

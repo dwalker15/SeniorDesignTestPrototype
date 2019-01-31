@@ -14,6 +14,7 @@ namespace SeniorDesignTestPrototype.Models
         public string VcTorqueType { get; set; }
         public string VcPosture { get; set; }
         public string VcDataCollection { get; set; }
+        public int IStudyYear { get; set; }
 
         public virtual ICollection<TNotes> TNotes { get; set; }
     }

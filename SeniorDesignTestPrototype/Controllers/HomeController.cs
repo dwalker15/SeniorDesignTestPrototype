@@ -23,7 +23,8 @@ namespace SeniorDesignTestPrototype.Controllers
                     {
                         dataCollection = prototype.VcDataCollection,
                         posture = prototype.VcPosture,
-                        torqueType = prototype.VcTorqueType
+                        torqueType = prototype.VcTorqueType,
+                        year = prototype.IStudyYear
                     };
                     modelList.Add(model);
                 }
@@ -46,7 +47,8 @@ namespace SeniorDesignTestPrototype.Controllers
                 {
                     VcTorqueType = model.torqueType,
                     VcPosture = model.posture,
-                    VcDataCollection = model.dataCollection
+                    VcDataCollection = model.dataCollection,
+                    IStudyYear = model.year
                 };
 
                 db.Add(prototype);

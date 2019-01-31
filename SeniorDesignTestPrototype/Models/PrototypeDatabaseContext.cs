@@ -85,6 +85,10 @@ namespace SeniorDesignTestPrototype.Models
                     .HasColumnName("vcTorqueType")
                     .HasMaxLength(1024)
                     .IsUnicode(false);
+
+                entity.Property(e => e.IStudyYear)
+                    .HasColumnName("iStudyYear")
+                    .ValueGeneratedNever();
             });
         }
     }

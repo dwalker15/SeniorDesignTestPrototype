@@ -6,5 +6,6 @@ namespace SeniorDesignTestPrototype.Models
         public string torqueType { get; set; }
         public string posture { get; set; }
         public string dataCollection { get; set; }
+        public int year { get; set; }
     }
 }
