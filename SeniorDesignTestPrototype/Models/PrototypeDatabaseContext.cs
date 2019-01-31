@@ -23,7 +23,7 @@ namespace SeniorDesignTestPrototype.Models
             if (!optionsBuilder.IsConfigured)
             {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:prototypetestserver.database.windows.net,1433;Initial Catalog=Prototype Database;Persist Security Info=False;User ID=djw0017;Password=Djdwa35393696!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Server=tcp:prototypetestserver.database.windows.net,1433;Initial Catalog=Prototype Database;Persist Security Info=False;User ID=djw0017;Password=Djdwa35393696!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Integrated Security=False;");
             }
         }
 
@@ -38,9 +38,7 @@ namespace SeniorDesignTestPrototype.Models
 
                 entity.ToTable("tNotes");
 
-                entity.Property(e => e.INoteId)
-                    .HasColumnName("iNoteID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.INoteId).HasColumnName("iNoteID");
 
                 entity.Property(e => e.IPrototypeId).HasColumnName("iPrototypeID");
 
@@ -64,9 +62,9 @@ namespace SeniorDesignTestPrototype.Models
 
                 entity.ToTable("tPrototype");
 
-                entity.Property(e => e.IPrototypeId)
-                    .HasColumnName("iPrototypeID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.IPrototypeId).HasColumnName("iPrototypeID");
+
+                entity.Property(e => e.IStudyYear).HasColumnName("iStudyYear");
 
                 entity.Property(e => e.VcDataCollection)
                     .IsRequired()
@@ -85,10 +83,6 @@ namespace SeniorDesignTestPrototype.Models
                     .HasColumnName("vcTorqueType")
                     .HasMaxLength(1024)
                     .IsUnicode(false);
-
-                entity.Property(e => e.IStudyYear)
-                    .HasColumnName("iStudyYear")
-                    .ValueGeneratedNever();
             });
         }
     }
