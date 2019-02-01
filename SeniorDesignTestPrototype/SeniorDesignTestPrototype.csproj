@@ -50,5 +50,9 @@
     <Content Remove="wwwroot\lib\jquery\.bower.json" />
     <Content Remove="wwwroot\lib\jquery\dist\jquery.js" />
     <Content Remove="wwwroot\lib\bootstrap\.bower.json" />
+    <Content Remove="wwwroot\images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\images\Logo.png" />
   </ItemGroup>
 </Project>
